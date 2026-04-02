@@ -136,7 +136,7 @@ export default function AdminPage() {
               <p className="mt-2 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-400">{currentFeedback.feedback.q1}</p>
             </div>
             <div>
-              <strong className="text-green-700 italic">What's your honest opinion about Sakthi (CEO)? How is he while working with the team?</strong>
+              <strong className="text-green-700 italic">What&apos;s your honest opinion about Sakthi (CEO)? How is he while working with the team?</strong>
               <p className="mt-2 p-3 bg-green-50 rounded-lg border-l-4 border-green-400">{currentFeedback.feedback.q2}</p>
             </div>
             <div>
@@ -144,7 +144,7 @@ export default function AdminPage() {
               <p className="mt-2 p-3 bg-yellow-50 rounded-lg border-l-4 border-yellow-400">{currentFeedback.feedback.q3}</p>
             </div>
             <div>
-              <strong className="text-pink-700 italic">How's your current workspace? Comfortable or needs improvement?</strong>
+              <strong className="text-pink-700 italic">How&apos;s your current workspace? Comfortable or needs improvement?</strong>
               <p className="mt-2 p-3 bg-pink-50 rounded-lg border-l-4 border-pink-400">{currentFeedback.feedback.q4}</p>
             </div>
             <div>
@@ -152,7 +152,7 @@ export default function AdminPage() {
               <p className="mt-2 p-3 bg-purple-50 rounded-lg border-l-4 border-purple-400">{currentFeedback.feedback.q5}</p>
             </div>
             <div>
-              <strong className="text-indigo-700 italic">Anything you'd like to change or improve? Say it freely 👀</strong>
+              <strong className="text-indigo-700 italic">Anything you&apos;d like to change or improve? Say it freely 👀</strong>
               <p className="mt-2 p-3 bg-indigo-50 rounded-lg border-l-4 border-indigo-400">{currentFeedback.feedback.q6}</p>
             </div>
           </div>

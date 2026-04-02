@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^5.15.9",
+    "@types/better-sqlite3": "^7.6.13",
     "@types/node": "25.5.0",
     "@types/react": "19.2.14",
     "autoprefixer": "^10.4.16",
