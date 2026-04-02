@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-const supabase = createClient(supabaseUrl, supabaseAnonKey)
-
 interface Feedback {
   id: string
   feedback: {
@@ -18,7 +14,19 @@ interface Feedback {
   timestamp: string
 }
 
+function getSupabaseClient() {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+  if (!supabaseUrl || !supabaseAnonKey) {
+    throw new Error('Supabase environment variables are not set')
+  }
+
+  return createClient(supabaseUrl, supabaseAnonKey)
+}
+
 export async function POST(request: NextRequest) {
+  const supabase = getSupabaseClient()
   const { feedback } = await request.json()
 
   if (!feedback || Object.values(feedback).some((value: any) => !value || !value.toString().trim())) {
@@ -50,6 +58,7 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET() {
+  const supabase = getSupabaseClient()
   const { data, error } = await supabase
     .from('feedbacks')
     .select('*')
@@ -77,6 +86,7 @@ export async function GET() {
 }
 
 export async function DELETE(request: NextRequest) {
+  const supabase = getSupabaseClient()
   const { searchParams } = new URL(request.url)
   const id = searchParams.get('id')
 
