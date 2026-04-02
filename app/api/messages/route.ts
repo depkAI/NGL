@@ -18,8 +18,13 @@ function getSupabaseClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
   const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
+  console.log('Supabase URL:', supabaseUrl ? '✓ SET' : '✗ MISSING')
+  console.log('Supabase Key:', supabaseAnonKey ? '✓ SET' : '✗ MISSING')
+
   if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error('Supabase environment variables are not set')
+    const error = new Error('Supabase environment variables are not set')
+    console.error(error)
+    throw error
   }
 
   return createClient(supabaseUrl, supabaseAnonKey)
